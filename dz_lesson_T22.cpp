@@ -63,4 +63,11 @@ int main()
     }
     cout << "===================================\n";
 
+    // 3
+    int countDVD = count_if(comp.begin(), comp.end(), [](const Computer& c) {
+        return c.getDVD();
+        });
+    cout << "\nNumber of computers with DVD-ROM: " << countDVD << endl;
+    cout << "===================================\n";
+
 }

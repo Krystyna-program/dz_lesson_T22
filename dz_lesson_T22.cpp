@@ -9,6 +9,9 @@ int main()
     comp.push_back(Computer("Lenovo", 3.5, 16, true, 18000));
     comp.push_back(Computer("Asus", 2.8, 8, false, 14500));
     comp.push_back(Computer("HP", 3.0, 32, true, 23000));
+    comp.push_back(Computer("Dell", 3.2, 12, true, 20000));
+    comp.push_back(Computer("Acer", 2.5, 8, false, 12000));
+    comp.push_back(Computer("Apple", 3.8, 16, true, 35000));
 
     cout << "=== List of Computers ===\n";
     for (int i = 0; i < comp.size(); ++i) {
@@ -39,4 +42,25 @@ int main()
         }
     }
     cout << "===================================\n";
+
+    // 2
+    if (comp.size() > 0) {
+        auto min_obj = min_element(comp.begin(), comp.end(), [](const Computer& a, const Computer& b) {
+            return a.getFrequency() < b.getFrequency();
+            });
+
+        cout << "\n=== Computer with MIN Frequency ===\n";
+        min_obj->showInfo();
+        comp.erase(min_obj);
+
+        cout << "\n=== Updated List ===\n";
+        for (int i = 0; i < comp.size(); ++i) {
+            comp[i].showInfo();
+        }
+    }
+    else {
+        cout << "\nVector is empty\n";
+    }
+    cout << "===================================\n";
+
 }

@@ -70,4 +70,21 @@ int main()
     cout << "\nNumber of computers with DVD-ROM: " << countDVD << endl;
     cout << "===================================\n";
 
+    // 4
+    for_each(comp.begin(), comp.end(), [](Computer& d) {
+        if (d.getRAMSize() > 16) {
+            float oldPrice = d.getPrice();
+            float newPrice = oldPrice * 1.10f;
+            d.setPrice(newPrice);
+
+            cout << "Was: " << oldPrice << " UAH --> Now: " << newPrice << " UAH\n";
+            d.showInfo();
+        }
+        });
+    cout << "=== Updated List ===\n";
+    for (int i = 0; i < comp.size(); ++i) {
+        comp[i].showInfo();
+    }
+    cout << "===================================\n";
+    
 }

@@ -87,4 +87,19 @@ int main()
     }
     cout << "===================================\n";
     
+    // 5
+    sort(comp.begin(), comp.end(), [](const Computer& left, const Computer& right) {
+        return left.getPrice() < right.getPrice();
+        });
+    cout << "\n=== Sorted by Price (Ascending) ===\n";
+    for (int i = 0; i < comp.size(); ++i) {
+        comp[i].showInfo();
+    }
+    sort(comp.begin(), comp.end(), [](const Computer& left, const Computer& right) {
+        return left.getPrice() > right.getPrice();
+        });
+    cout << "\n=== Sorted by Price (Descending) ===\n";
+    for (int i = 0; i < comp.size(); ++i) {
+        comp[i].showInfo();
+    }
 }
